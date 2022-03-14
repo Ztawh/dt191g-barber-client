@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #342e26;
+}
+
+header {
+  height: 800px;
+  width: 100%;
+  background-image: url("../barber-shop-gb1eec4a8f_1920.jpg");
+  background-attachment: fixed;
+}
+
+h1 {
+  color: blueviolet;
+}
+
+.welcome {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #f5f2ea;
+}
+
+.flex {
+  display: flex;
+}
+
+.hasse-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+.hasse-img img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/*# sourceMappingURL=style.css.map */

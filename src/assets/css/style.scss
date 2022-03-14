@@ -1,0 +1,48 @@
+$brown-dark: #342e26;
+$nature-white: #f5f2ea;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $brown-dark;
+}
+
+header {
+    height: 800px;
+    width: 100%;
+    background-image: url("../barber-shop-gb1eec4a8f_1920.jpg");
+    background-attachment: fixed;
+    // img {
+    //     position: fixed;
+    //     z-index: -1;
+    //     width: 100%;
+    // }
+}
+
+h1 {
+    color: blueviolet;
+}
+
+.welcome {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: $nature-white;
+}
+
+.flex {
+    display: flex;
+}
+
+.hasse-img {
+    // FUNGERAR EJJ!!
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
+}
