@@ -15,10 +15,10 @@
       </div>
 
       <div class="contact-links">
-        <div>ikon</div>
+        <div><i class="fa-solid fa-envelope"></i></div>
         <div><a href="#">info@barberaren.se</a></div>
 
-        <div>ikon</div>
+        <div><i class="fa-solid fa-phone-flip"></i></div>
         <div><a href="#">070-1234567</a></div>
       </div>
     </div>

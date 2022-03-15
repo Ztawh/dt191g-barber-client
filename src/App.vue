@@ -9,19 +9,19 @@
     <AboutComponentVue />
     <main>
       <ContactComponentVue />
-
     </main>
+    <FooterComponentVue />
   </div>
 </template>
 
-<script src="https://kit.fontawesome.com/be0f6fe16e.js" crossorigin="anonymous">
+<script>
 // import BarbersComponentVue from "./components/BarbersComponent.vue";
 import BookingComponentVue from "./components/BookingComponent.vue";
 import ContactComponentVue from "./components/ContactComponent.vue";
 import AboutComponentVue from "./components/AboutComponent.vue";
 import HeaderComponentVue from "./components/HeaderComponent.vue";
 import WelcomeComponentVue from "./components/WelcomeComponent.vue";
-
+import FooterComponentVue from "./components/FooterComponent.vue";
 
 
 export default {
@@ -32,7 +32,8 @@ export default {
     ContactComponentVue,
     AboutComponentVue,
     HeaderComponentVue,
-    WelcomeComponentVue
+    WelcomeComponentVue,
+    FooterComponentVue
 }
 };
 </script>
