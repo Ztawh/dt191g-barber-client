@@ -5,20 +5,24 @@
     <main>
       <!-- <BarbersComponentVue /> -->
       <BookingComponentVue />
-      <AboutComponentVue />
+    </main>
+    <AboutComponentVue />
+    <main>
       <ContactComponentVue />
 
     </main>
   </div>
 </template>
 
-<script>
+<script src="https://kit.fontawesome.com/be0f6fe16e.js" crossorigin="anonymous">
 // import BarbersComponentVue from "./components/BarbersComponent.vue";
 import BookingComponentVue from "./components/BookingComponent.vue";
 import ContactComponentVue from "./components/ContactComponent.vue";
 import AboutComponentVue from "./components/AboutComponent.vue";
 import HeaderComponentVue from "./components/HeaderComponent.vue";
 import WelcomeComponentVue from "./components/WelcomeComponent.vue";
+
+
 
 export default {
   name: "App",
