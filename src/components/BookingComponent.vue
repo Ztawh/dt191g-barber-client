@@ -1,27 +1,33 @@
 
 
 <template>
-    <div>
+    <div id="booking-container">
         <h2>Boka tid</h2>
         <div>
             <form @submit.prevent="addAppointment">
-                <label>Barberare</label>
-                <select v-on:change="updateDates" v-model="this.barber" required>
-                    <option
-                        v-for="barber in barbers"
-                        :key="barber.id"
-                        :value="barber.barberId"
-                    >{{ barber.barberName }} - {{ barber.role }}</option>
-                </select>
+                <div class="flex">
+                    <div>
+                        <label>Barberare</label>
+                        <select v-on:change="updateDates" v-model="this.barber" required>
+                            <option
+                                v-for="barber in barbers"
+                                :key="barber.id"
+                                :value="barber.barberId"
+                            >{{ barber.barberName }} - {{ barber.role }}</option>
+                        </select>
+                    </div>
 
-                <label>Tjänst</label>
-                <select v-model="this.service" required>
-                    <option
-                        v-for="service in services"
-                        :key="service.id"
-                        :value="service.serviceId"
-                    >{{ service.serviceName }}</option>
-                </select>
+                    <div>
+                        <label>Tjänst</label>
+                        <select v-model="this.service" required>
+                            <option
+                                v-for="service in services"
+                                :key="service.id"
+                                :value="service.serviceId"
+                            >{{ service.serviceName }}</option>
+                        </select>
+                    </div>
+                </div>
 
                 <label>Tillgängliga tider</label>
                 <select v-model="this.date" required>
@@ -37,11 +43,11 @@
                 <label>Telefonnummer</label>
                 <input type="text" required v-model="this.phone" />
 
-                <button type="submit">boka</button>
+                <button class="submit-btn" type="submit">boka</button>
             </form>
         </div>
 
-        <p>Kundnamn: {{ this.name }}</p>
+        <!-- <p>Kundnamn: {{ this.name }}</p> -->
     </div>
 </template>
 

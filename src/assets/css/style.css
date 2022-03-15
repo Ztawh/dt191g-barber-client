@@ -8,11 +8,23 @@ body {
   background: #342e26;
 }
 
+#super-container {
+  max-width: 1920px;
+  margin: auto;
+}
+
 header {
   height: 800px;
   width: 100%;
   background-image: url("../barber-shop-gb1eec4a8f_1920.jpg");
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+main {
+  max-width: 750px;
+  margin: auto;
 }
 
 h1 {
@@ -37,6 +49,23 @@ h1 {
 .hasse-img img {
   width: 100%;
   object-fit: contain;
+}
+
+#booking-container {
+  padding: 2rem 0;
+  color: #f5f2ea;
+}
+#booking-container form label,
+#booking-container form input {
+  display: block;
+}
+.submit-btn {
+  background: #bb8f30;
+  border: none;
+  padding: 0.4rem;
+  margin-top: 1rem;
+  width: 50px;
+  transition: 0.2s;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,15 @@
+// Variabler
 $brown-dark: #342e26;
 $nature-white: #f5f2ea;
+$btn-color: rgb(187, 143, 48);
+$link-color: #fff;
+// Mixins
+@mixin desktop {
+    @media screen and (min-width: 800px) {
+        @content;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,16 +20,28 @@ body {
     background: $brown-dark;
 }
 
+#super-container {
+    max-width: 1920px;
+    margin: auto;
+}
+
 header {
     height: 800px;
     width: 100%;
     background-image: url("../barber-shop-gb1eec4a8f_1920.jpg");
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top;
     // img {
     //     position: fixed;
     //     z-index: -1;
     //     width: 100%;
     // }
+}
+
+main {
+    max-width: 750px;
+    margin: auto;
 }
 
 h1 {
@@ -45,4 +67,29 @@ h1 {
         width: 100%;
         object-fit: contain;
     }
+}
+
+// bokning
+#booking-container {
+    padding: 2rem 0;
+    color: $nature-white;
+    form {
+        label,
+        input {
+            display: block;
+        }
+        input {}
+    }
+}
+
+.submit-btn {
+    background: $btn-color;
+    border: none;
+    padding: 0.4rem;
+    margin-top: 1rem;
+    width: 50px;
+    transition: 0.2s;
+    // @include desktop {
+    //     &:hover {}
+    // }
 }

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div id="super-container">
     <HeaderComponentVue />
+    <WelcomeComponentVue />
     <main>
-      <WelcomeComponentVue />
-      <BarbersComponentVue />
+      <!-- <BarbersComponentVue /> -->
       <BookingComponentVue />
       <AboutComponentVue />
       <ContactComponentVue />
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BarbersComponentVue from "./components/BarbersComponent.vue";
+// import BarbersComponentVue from "./components/BarbersComponent.vue";
 import BookingComponentVue from "./components/BookingComponent.vue";
 import ContactComponentVue from "./components/ContactComponent.vue";
 import AboutComponentVue from "./components/AboutComponent.vue";
@@ -23,7 +23,7 @@ import WelcomeComponentVue from "./components/WelcomeComponent.vue";
 export default {
   name: "App",
   components: {
-    BarbersComponentVue,
+    // BarbersComponentVue,
     BookingComponentVue,
     ContactComponentVue,
     AboutComponentVue,
