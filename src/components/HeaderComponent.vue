@@ -5,11 +5,11 @@
           <h1>Barberar'n</h1>
 
           <nav>
-              <ul>
+              <ul class="flex">
                   <li><a href="#">hem</a></li>
-                  <li><a href="#">boka</a></li>
-                  <li><a href="#">om oss</a></li>
-                  <li><a href="#">kontakt</a></li>
+                  <li><a href="#booking-container">boka</a></li>
+                  <li><a href="#about-container">om oss</a></li>
+                  <li><a href="#contact-container">kontakt</a></li>
               </ul>
           </nav>
       </header>

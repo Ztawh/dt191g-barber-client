@@ -5,9 +5,9 @@
       <div class="text-container">
         <p>
           Om du har frågor går det jättebra att kontakta oss genom antingen
-          e-post eller telefon. Vi finns tillgängliga under våra öppettider.
+          e-post eller telefon. Vi finns tillgängliga under våra öppettider. Det går såklart också bra att titta in i vår lokal på <b>Tullportsgatan 0</b> i Norrtälje.
         </p>
-        <h3>öppettider</h3>
+        <h3>Öppettider</h3>
         <div class="open">
           <div>Mån-fre kl. 09:00-17:00</div>
           <div>Lör-sön kl. 11:00-16:00</div>

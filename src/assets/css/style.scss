@@ -1,8 +1,19 @@
+// Typsnitt
+@import url('https://fonts.googleapis.com/css2?family=Cantarell&family=Dosis:wght@300;500&family=Mulish:wght@300;400&family=Playfair+Display+SC:wght@400;700&family=Rokkitt:wght@300;500&display=swap');
 // Variabler
-$brown-dark: #342e26;
+$brown: #342e26;
+$brown-dark: #1d1a16;
 $nature-white: #f5f2ea;
 // $btn-color: rgb(187, 143, 48);
-$accent: rgb(226, 176, 68);
+$accent: rgb(226,
+176,
+68);
+$accent-bright: rgb(255,
+184,
+31);
+$accent-dull: rgb(172,
+145,
+88);
 // Mixins
 @mixin desktop {
     @media screen and (min-width: 800px) {
@@ -14,10 +25,12 @@ $accent: rgb(226, 176, 68);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    line-height: 1.5;
 }
 
 body {
-    background: $brown-dark;
+    background: $brown;
+    font-family: 'Dosis', sans-serif;
 }
 
 #super-container {
@@ -32,11 +45,46 @@ header {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: top;
-    // img {
-    //     position: fixed;
-    //     z-index: -1;
-    //     width: 100%;
-    // }
+    position: relative;
+}
+
+nav {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    ul {
+        list-style-type: none;
+        a {
+            display: flex;
+            padding: 0.5rem;
+            color: $nature-white;
+            text-decoration: none;
+            transition: 0.2s;
+            @include desktop {
+                &:hover {
+                    color: $accent-bright;
+                }
+            }
+        }
+    }
+}
+
+// Rubriker
+h1 {
+    font-family: "Playfair Display SC", serif;
+    color: $nature-white;
+    padding: 6rem 0 0 4rem;
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h2,
+h3,
+h4 {
+    font-family: "Cantarell", sans-serif;
 }
 
 main,
@@ -45,14 +93,15 @@ main,
     margin: auto;
 }
 
-h1 {
-    color: blueviolet;
-}
-
 .welcome {
     padding: 4rem 1rem;
     text-align: center;
     background: $nature-white;
+    font-size: 1.5rem;
+    p {
+        max-width: 400px;
+        margin: auto;
+    }
 }
 
 .flex {
@@ -68,16 +117,76 @@ h1 {
     }
 }
 
+.text-container {
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
 // bokning
 #booking-container {
     padding: 4rem 0;
     color: $nature-white;
     form {
+        padding-bottom: 2rem;
+        position: relative;
         label,
         input {
             display: block;
         }
-        input {}
+        input {
+            padding: 0.6rem;
+            border: none;
+        }
+        select,
+        input {
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        // Lägg till pil på select-rutor
+        .select-container {
+            position: relative;
+            &::after {
+                content: "v";
+                color: black;
+                position: absolute;
+                top: 0.3rem;
+                right: 0.5rem;
+            }
+        }
+        select {
+            -webkit-appearance: unset;
+            margin-right: 0.5rem;
+            padding: 0.5rem 1rem 0.5rem 0.5rem;
+            color: black;
+            position: relative;
+            display: block;
+            // border-radius: 0;
+        }
+        .btn-dates {
+            padding: 0.3rem;
+            background: $accent;
+            border: none;
+            margin: 0 0.5rem;
+            font-weight: bold;
+            @include desktop {
+                &:hover {
+                    background: $accent-bright;
+                    cursor: pointer;
+                }
+            }
+        }
+        .dates-container {
+            margin: 1rem 0 2rem 0;
+        }
+        .no-click {
+            background: $accent-dull;
+            @include desktop {
+                &:hover {
+                    background: $accent-dull;
+                }
+            }
+        }
     }
 }
 
@@ -86,11 +195,19 @@ h1 {
     border: none;
     padding: 0.4rem;
     margin-top: 1rem;
-    width: 50px;
+    width: 60px;
+    font-size: 1.1rem;
     transition: 0.2s;
-    // @include desktop {
-    //     &:hover {}
-    // }
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    @include desktop {
+        &:hover {
+            background: $accent-bright;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
 }
 
 // Om oss
@@ -99,9 +216,12 @@ h1 {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: top;
-    padding: 6rem 1rem;
+    padding: 7rem 1rem;
     background-position-y: 20%;
     color: $nature-white;
+    .text-container {
+        margin-right: 1rem;
+    }
 }
 
 // Kontakt
@@ -110,7 +230,7 @@ h1 {
     padding: 4rem 1rem;
     .contact-links {
         text-align: center;
-        width: 220px;
+        width: 320px;
         i {
             font-size: 2.5rem;
         }
@@ -122,6 +242,7 @@ h1 {
             @include desktop {
                 &:hover {
                     letter-spacing: 1px;
+                    color: $accent-bright;
                 }
             }
         }
@@ -131,4 +252,30 @@ h1 {
 // Footer 
 footer {
     padding: 3rem 1rem;
+    background: $brown-dark;
+    color: $nature-white;
+    .flex {
+        margin: auto;
+        width: fit-content;
+    }
+    #copyright,
+    #footer-contact,
+    #footer-adress {
+        margin: 0 1rem;
+    }
+    #footer-contact {
+        ul {
+            list-style-position: inside;
+            a {
+                // display: flex;
+                color: $accent;
+                transition: 0.2s;
+                @include desktop {
+                    &:hover {
+                        color: $accent-bright;
+                    }
+                }
+            }
+        }
+    }
 }

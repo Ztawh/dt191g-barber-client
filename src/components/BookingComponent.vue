@@ -8,39 +8,48 @@
                 <div class="flex">
                     <div>
                         <label>Barberare</label>
-                        <select v-on:change="updateDates" v-model="this.barber" required>
-                            <option
-                                v-for="barber in barbers"
-                                :key="barber.id"
-                                :value="barber.barberId"
-                            >{{ barber.barberName }} - {{ barber.role }}</option>
-                        </select>
+                        <div class="select-container">
+                            <select v-on:change="updateDates" v-model="this.barber" required>
+                                <option
+                                    v-for="barber in barbers"
+                                    :key="barber.id"
+                                    :value="barber.barberId"
+                                >{{ barber.barberName }} - {{ barber.role }}</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div>
                         <label>Tjänst</label>
-                        <select v-model="this.service" required>
-                            <option
-                                v-for="service in services"
-                                :key="service.id"
-                                :value="service.serviceId"
-                            >{{ service.serviceName }}</option>
-                        </select>
+                        <div class="select-container">
+                            <select v-model="this.service" required>
+                                <option
+                                    v-for="service in services"
+                                    :key="service.id"
+                                    :value="service.serviceId"
+                                >{{ service.serviceName }}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
-                <label>Tillgängliga tider</label>
-                <select v-model="this.date" required>
-                    <option v-for="date in available" :key="date.id" :value="date">{{ date }}</option>
-                </select>
+                <div class="dates-container">
+                    <label>Tillgängliga tider</label>
+                    <div class="select-container">
+                        <select v-model="this.date" required>
+                            <option v-for="date in available" :key="date.id" :value="date">{{ date }}</option>
+                        </select>
+                    </div>
 
-                <button v-on:click="getLessDates" v-bind:class ="this.add < 7 ? 'no-click' : 'click'">Tidigare vecka</button>
-                <button v-on:click="getMoreDates">Nästa vecka</button>
+                    <!-- Gör knappen grå om den inte kan backa mer -->
+                    <button v-on:click="getLessDates" v-bind:class ="this.add < 7 ? 'no-click btn-dates' : 'btn-dates'">&#60; Tidigare vecka</button>
+                    <button class="btn-dates" v-on:click="getMoreDates">Nästa vecka &#62;</button>
+                </div>
 
-                <label>Namn</label>
+                <label>Ditt för- och efternamn</label>
                 <input type="text" required v-model="this.name" />
 
-                <label>Telefonnummer</label>
+                <label>Ditt telefonnummer</label>
                 <input type="text" required v-model="this.phone" />
 
                 <button class="submit-btn" type="submit">boka</button>
@@ -239,8 +248,8 @@ export default {
 </script>
 
 <style>
-    .no-click {
+    /* .no-click {
         color: grey;
         
-    }
+    } */
 </style>
