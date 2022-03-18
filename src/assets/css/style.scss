@@ -14,6 +14,9 @@ $accent-bright: rgb(255,
 $accent-dull: rgb(172,
 145,
 88);
+$green: rgb(81,
+105,
+68);
 // Mixins
 @mixin desktop {
     @media screen and (min-width: 800px) {
@@ -108,6 +111,18 @@ main,
     display: flex;
 }
 
+.hide {
+    display: none;
+}
+
+.thank-you {
+    background: $green;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
 .hasse-img {
     img {
         border-radius: 100%;
@@ -146,6 +161,7 @@ main,
         // Lägg till pil på select-rutor
         .select-container {
             position: relative;
+            width: 100%;
             &::after {
                 content: "v";
                 color: black;
@@ -195,7 +211,7 @@ main,
     border: none;
     padding: 0.4rem;
     margin-top: 1rem;
-    width: 60px;
+    width: 70px;
     font-size: 1.1rem;
     transition: 0.2s;
     position: absolute;

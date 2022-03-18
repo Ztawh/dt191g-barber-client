@@ -1,9 +1,8 @@
-
-
 <template>
     <div id="booking-container">
         <h2>Boka tid</h2>
         <div>
+            <!-- Bokningsformulär -->
             <form @submit.prevent="addAppointment">
                 <div class="flex">
                     <div>
@@ -27,7 +26,7 @@
                                     v-for="service in services"
                                     :key="service.id"
                                     :value="service.serviceId"
-                                >{{ service.serviceName }}</option>
+                                >{{ service.serviceName }}({{service.serviceDuration}} min) - {{service.servicePrice}}kr</option>
                             </select>
                         </div>
                     </div>
@@ -56,6 +55,8 @@
             </form>
         </div>
 
+        <div v-bind:class="this.msg == '' ? 'hide' : 'thank-you'">{{this.msg}}</div>
+
         <!-- <p>Kundnamn: {{ this.name }}</p> -->
     </div>
 </template>
@@ -80,7 +81,9 @@ export default {
             service: 1,
             date: "",
             name: "",
-            phone: ""
+            phone: "",
+            bookingForm: 0,
+            msg: ""
         }
     },
     mounted() {
@@ -230,6 +233,7 @@ export default {
             let appointmentObj = { "DateAndTime": this.date, "BarberId": this.barber, "CustomerId": idCustomer, "ServiceId": this.service }
             console.log(appointmentObj)
 
+            // POST till API
             await fetch(this.appointmentUrl, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
@@ -238,10 +242,16 @@ export default {
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
+                    this.msg = "Tack " + this.name + " för din bokning!"
+                    // Ladda om sidan
+                    setTimeout(() => {location.reload()}, 3000)
+                    
                 })
                 .catch(error => {
                     console.log("Error: ", error)
                 })
+
+            
         }
     }
 }

@@ -85,6 +85,18 @@ main,
   display: flex;
 }
 
+.hide {
+  display: none;
+}
+
+.thank-you {
+  background: #516944;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
 .hasse-img img {
   border-radius: 100%;
   object-fit: cover;
@@ -119,6 +131,7 @@ main,
 }
 #booking-container form .select-container {
   position: relative;
+  width: 100%;
 }
 #booking-container form .select-container::after {
   content: "v";
@@ -165,7 +178,7 @@ main,
   border: none;
   padding: 0.4rem;
   margin-top: 1rem;
-  width: 60px;
+  width: 70px;
   font-size: 1.1rem;
   transition: 0.2s;
   position: absolute;
