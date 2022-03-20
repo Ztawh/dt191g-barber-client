@@ -24,6 +24,18 @@ $green: rgb(81,
     }
 }
 
+@mixin tablet {
+    @media screen and (max-width: 800px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -49,6 +61,13 @@ header {
     background-repeat: no-repeat;
     background-position: top;
     position: relative;
+    @include tablet {
+        background-image: url("../barber-shop-800.jpg");
+    }
+    @include mobile {
+        height: 500px;
+        background-image: url("../barber-shop-500.jpg");
+    }
 }
 
 nav {
@@ -78,6 +97,15 @@ h1 {
     color: $nature-white;
     padding: 6rem 0 0 4rem;
     font-size: 6rem;
+    @include tablet {
+        font-size: 4rem;
+    }
+    @include mobile {
+        font-size: 2rem;
+        width: fit-content;
+        margin: auto;
+        padding: 3rem 0 0 0;
+    }
 }
 
 h2 {
@@ -105,6 +133,9 @@ main,
         max-width: 400px;
         margin: auto;
     }
+    @include mobile {
+        padding: 2rem 1rem;
+    }
 }
 
 .flex {
@@ -129,6 +160,10 @@ main,
         object-fit: cover;
         width: 150px;
         height: 150px;
+        @include mobile {
+            margin: auto;
+            display: block;
+        }
     }
 }
 
@@ -140,7 +175,7 @@ main,
 
 // bokning
 #booking-container {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
     color: $nature-white;
     form {
         padding-bottom: 2rem;
@@ -237,6 +272,17 @@ main,
     color: $nature-white;
     .text-container {
         margin-right: 1rem;
+        @include mobile {
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+    }
+    @include tablet {
+        background-image: url("../haircut-800.jpg");
+        padding: 5rem 1rem;
+    }
+    @include mobile {
+        padding: 4rem 1rem;
     }
 }
 
@@ -261,6 +307,10 @@ main,
                     color: $accent-bright;
                 }
             }
+        }
+        @include mobile {
+            margin: 2rem auto 0 auto;
+            width: fit-content;
         }
     }
 }
@@ -292,6 +342,24 @@ footer {
                     }
                 }
             }
+        }
+    }
+    @include mobile {
+        #footer-contact,
+        #footer-adress {
+            margin-top: 1rem;
+        }
+    }
+}
+
+// Ändra riktning på flex på mobiler
+@include mobile {
+    footer,
+    #contact-container,
+    #about-container,
+    #booking-container {
+        .flex {
+            flex-direction: column;
         }
     }
 }

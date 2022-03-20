@@ -56,8 +56,6 @@
         </div>
 
         <div v-bind:class="this.msg == '' ? 'hide' : 'thank-you'">{{this.msg}}</div>
-
-        <!-- <p>Kundnamn: {{ this.name }}</p> -->
     </div>
 </template>
 
@@ -108,14 +106,6 @@ export default {
                 .then(data => {
                     this.available = data
                     this.date = this.available[0]
-
-                    // this.available.forEach(item => {
-                    //     this.availableList.push(item.split('T'))
-                    // })
-
-                    // this.date = this.availableList[0]
-
-
                 })
                 .catch(error => {
                     console.log("Error: ", error)
@@ -129,16 +119,6 @@ export default {
                 .then(data => {
                     this.available = data
                     this.date = this.available[0]
-
-                    // this.available.forEach(item => {
-                    //     this.availableList.push(item.split('T'))
-
-                    // })
-
-                    // this.date = this.availableList[0]
-
-                    // console.log(this.availableList)
-
                 })
                 .catch(error => {
                     console.log("Error: ", error)
@@ -152,16 +132,6 @@ export default {
                     .then(data => {
                         this.available = data
                         this.date = this.available[0]
-
-                        // this.available.forEach(item => {
-                        //     this.availableList.push(item.split('T'))
-
-                        // })
-
-                        // this.date = this.availableList[0]
-
-                        // console.log(this.availableList)
-
                     })
                     .catch(error => {
                         console.log("Error: ", error)
@@ -175,12 +145,6 @@ export default {
                 .then(data => {
                     this.available = ""
                     this.available = data
-
-                    // this.available.forEach(item => {
-                    //     this.availableList.push(item.split('T'))
-                    // })
-
-                    // this.date = this.availableList[0]
                 })
                 .catch(error => {
                     console.log("Error: ", error)
@@ -250,16 +214,10 @@ export default {
                 .catch(error => {
                     console.log("Error: ", error)
                 })
-
-            
         }
     }
 }
 </script>
 
 <style>
-    /* .no-click {
-        color: grey;
-        
-    } */
 </style>
