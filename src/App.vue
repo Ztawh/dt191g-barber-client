@@ -14,7 +14,6 @@
 </template>
 
 <script>
-// import BarbersComponentVue from "./components/BarbersComponent.vue";
 import BookingComponentVue from "./components/BookingComponent.vue";
 import ContactComponentVue from "./components/ContactComponent.vue";
 import AboutComponentVue from "./components/AboutComponent.vue";
@@ -26,7 +25,6 @@ import FooterComponentVue from "./components/FooterComponent.vue";
 export default {
   name: "App",
   components: {
-    // BarbersComponentVue,
     BookingComponentVue,
     ContactComponentVue,
     AboutComponentVue,
