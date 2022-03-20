@@ -18,6 +18,7 @@
                         </div>
                     </div>
 
+                    <!-- Tjänster -->
                     <div>
                         <label>Tjänst</label>
                         <div class="select-container">
@@ -32,6 +33,7 @@
                     </div>
                 </div>
 
+                <!-- Tillgängliga tider -->
                 <div class="dates-container">
                     <label>Tillgängliga tider</label>
                     <div class="select-container">
@@ -45,6 +47,7 @@
                     <button class="btn-dates" v-on:click="getMoreDates">Nästa vecka &#62;</button>
                 </div>
 
+                <!-- Kundens personuppgifter -->
                 <label>Ditt för- och efternamn</label>
                 <input type="text" required v-model="this.name" />
 
@@ -55,12 +58,12 @@
             </form>
         </div>
 
+        <!-- Meddelande -->
         <div v-bind:class="this.msg == '' ? 'hide' : 'thank-you'">{{this.msg}}</div>
     </div>
 </template>
 
 <script>
-
 export default {
     data() {
         return {
@@ -85,6 +88,7 @@ export default {
         }
     },
     mounted() {
+        // Hämta alla barberare
         fetch(this.barberUrl)
             .then(response => response.json())
             .then(data => {
@@ -93,6 +97,7 @@ export default {
             .catch(error => {
                 console.log("Error: ", error)
             }),
+            // Hämta alla tjänster
             fetch(this.serviceUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -101,6 +106,7 @@ export default {
                 .catch(error => {
                     console.log("Error: ", error)
                 }),
+                // Hämta alla tillgängliga tider med add = 0 och barberId är det som är i formuläret
             fetch(this.availableUrl + this.add + "/" + this.barber)
                 .then(response => response.json())
                 .then(data => {
@@ -113,6 +119,7 @@ export default {
     },
     methods: {
         getMoreDates: async function () {
+            // Addera add med 7 och hämta tillgängliga tider på nytt
             this.add += 7
             await fetch(this.availableUrl + this.add + "/" + this.barber)
                 .then(response => response.json())
@@ -125,6 +132,7 @@ export default {
                 })
         },
         getLessDates: async function () {
+            // Subtrahera add med 7 om add är större än eller lika med 7, och hämta tillgängliga tider
             if (this.add >= 7) {
                 this.add -= 7
                 await fetch(this.availableUrl + this.add + "/" + this.barber)
@@ -140,6 +148,7 @@ export default {
 
         },
         updateDates: async function () {
+            // Hämta tillgängliga tider för ny barberare
             await fetch(this.availableUrl + this.add + "/" + this.barber)
                 .then(response => response.json())
                 .then(data => {
@@ -154,6 +163,7 @@ export default {
             let idCustomer = 0;
             console.log(idCustomer)
 
+            // Hämta alla kunder
             await fetch(this.customerUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -169,7 +179,6 @@ export default {
             this.customers.forEach(customer => {
                 if (customer.customerName == this.name && customer.phone == this.phone) {
                     idCustomer = customer.customerId
-                    console.log("kund fanns redan: " + idCustomer)
                 }
             })
 
@@ -184,9 +193,7 @@ export default {
                 })
                     .then(response => response.json())
                     .then(data => {
-                        console.log("Den här kunden har lagts till: " + data)
                         idCustomer = data.customerId
-                        console.log("Ny kund: " + idCustomer)
                     })
                     .catch(error => {
                         console.log("Error: ", error)
@@ -195,7 +202,6 @@ export default {
 
             // Sätt appointment-objekt
             let appointmentObj = { "DateAndTime": this.date, "BarberId": this.barber, "CustomerId": idCustomer, "ServiceId": this.service }
-            console.log(appointmentObj)
 
             // POST till API
             await fetch(this.appointmentUrl, {
@@ -205,7 +211,6 @@ export default {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
                     this.msg = "Tack " + this.name + " för din bokning!"
                     // Ladda om sidan
                     setTimeout(() => {location.reload()}, 3000)

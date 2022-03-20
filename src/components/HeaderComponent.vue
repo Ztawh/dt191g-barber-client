@@ -1,7 +1,6 @@
 <template>
   <div>
       <header>
-          <!-- <img src="../assets/barber-shop-gb1eec4a8f_1920.jpg" alt="Barbershop"> -->
           <h1>Barberar'n</h1>
 
           <nav>
